@@ -15,6 +15,7 @@ const regex = {
 
 email.addEventListener('blur', onExit);
 postcode.addEventListener('blur', onExit);
+pswconfirm.addEventListener('blur', onExit);
 submit.addEventListener('click', onClick);
 
 function onExit(e) {
@@ -26,12 +27,16 @@ function onExit(e) {
         case postcode:
             validatePostCode();
         break;
+        case pswconfirm:
+            confirmPassword();
+        break;
     }
 } 
 
 function onClick() {
     validateEmail();
     validatePostCode();
+    confirmPassword();
 }
 
 function validatePostCode() {
@@ -51,8 +56,13 @@ function validateEmail() {
 function validateElement(element, isElementValid, msg) {
     if (!isElementValid) {
         element.setCustomValidity(msg);
-        //element.reportValidity();
     } else {
         element.setCustomValidity('');
     }
+}
+
+function confirmPassword() {
+    const isPasswordConfirmed = (password.value == pswconfirm.value);
+    const message = 'Please retype the password!';
+    validateElement(pswconfirm, isPasswordConfirmed, message);
 }
