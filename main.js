@@ -4,6 +4,8 @@ const postcode = document.querySelector('#postcode');
 const password = document.querySelector('#password');
 const pswconfirm = document.querySelector('#pswconfirm');
 const submit = document.querySelector('button');
+const form = document.querySelector('form');
+const image = document.querySelector('#hifive');
 
 const regex = {
     'UK': /^[a-z]{1,2}\d[a-z\d]?\s*\d[a-z]{2}$/i,
@@ -37,6 +39,9 @@ function onClick() {
     validateEmail();
     validatePostCode();
     confirmPassword();
+    if (form.checkValidity()) {
+        image.classList.remove('hide');
+    }
 }
 
 function validatePostCode() {

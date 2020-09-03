@@ -7,6 +7,9 @@
             input:invalid {
                 border: 2px solid red;
             }
+            .hide {
+                visibility: hidden;
+            }
         </style>
     </head>
     <body>
@@ -33,6 +36,7 @@
             <input type="password" id="pswconfirm" required pattern="^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z]).{8,32}$"><br><br>
             <button type="button">submit</button>
         </form>
+        <img src="hifive.png" class="hide" id="hifive">
         <script src="main.js"></script>  
     </body>
 </html>
